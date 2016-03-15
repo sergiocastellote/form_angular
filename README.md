@@ -5,4 +5,4 @@
 	- Clonar el proyecto o descargar el zip
 	- Sobre la carpeta del proyecto (donde se encuentran los archivos bower.json y package.json) ejecutar 'npm install' y 'bower install'
 	- Una vez acabado la ejecución de estas instrucciones arrancar el servidor con 'gulp serve'
-	- Es necesario tener instalado node https://nodejs.org/en/ y bower http://bower.io/#install-bower 
+	- Es necesario tener instalado node: https://nodejs.org/en/, bower: http://bower.io/#install-bower y gulp: https://www.npmjs.com/package/gulp-install
