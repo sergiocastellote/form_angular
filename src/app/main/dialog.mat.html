@@ -1,0 +1,27 @@
+<div ng-controller="DialogController as vm">
+    <md-dialog aria-label="Lista de usuarios" ng-cloak>
+        <form>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Lista de usuarios</h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-dialog-content>
+                <div class="md-dialog-content">
+                    <md-list>
+                        <md-list-item class="md-3-line" ng-repeat="item in vm.data">
+                            <div class="md-list-item-text" layout="column">
+                                <p>Nombre: {{ item.name }}</p>
+                                <p>Apellido: {{ item.surname }}</p>
+                                <p>Password: {{ item.password }}</p>
+                                <p>Compañia: {{ item.company }}</p>
+                                <md-divider></md-divider>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </md-dialog-content>
+        </form>
+    </md-dialog>
+</div>
