@@ -6,16 +6,17 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($http, $scope, $mdDialog, MainFactory) {
+    function MainController($http, $scope, $mdDialog, MainFactory, MainService) {
         var vm = this;
         vm.array = [];
-        vm.data = MainFactory.getObjData();
+        // vm.data = MainFactory.getObjData();
         vm.sentData = function() {
-            MainFactory.setData(vm.data);
-            vm.data.name.model = ""
-            vm.data.surname.model = ""
-            vm.data.password.model = ""
-            vm.data.company.model = ""
+            MainFactory.setData(vm.form);
+            MainFactory.cleanForm(vm.form);
+            // vm.form.name = ""
+            // vm.form.surname = ""
+            // vm.data.password.model = ""
+            // vm.data.company.model = ""
         }
 
         vm.showUsers = function(ev) {
@@ -25,22 +26,12 @@
             })
         };
 
-        ////////////CONNNNNNNNNNNEEEEEEEEEEEECCCCCCCCCCTTTTTTTTTTTAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!
-        $http({
-            method: 'GET',
-            url: 'http://localhost:8080/RestServiceJava/rest/ftocservice',
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-            }
-        }).then(function successCallback(response) {
-            console.log("hola");
-            // this callback will be called asynchronously
-            // when the response is available
+        var service = 'ftocservice'
+        MainService.receiveData(service).then(function successCallback(response) {
+            vm.data = response.data;
+            MainFactory.setInitData(vm.data);
         }, function errorCallback(response) {
-            console.log("adios");
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
         });
+
     }
 })();

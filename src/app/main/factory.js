@@ -39,7 +39,9 @@
         var fac = {
             getData: getData,
             setData: setData,
-            getObjData: getObjData
+            getObjData: getObjData,
+            setInitData: setInitData,
+            cleanForm: cleanForm
         };
 
         function getObjData() {
@@ -48,15 +50,23 @@
 
         function setData(data) {
             array.push({
-                name: data.name.model,
-                surname: data.surname.model,
-                password: data.password.model,
-                company: data.company.model
+                name: data.name,
+                surname: data.surname
             });
+        }
+
+        function setInitData(data){
+            array = data;
         }
 
         function getData() {
             return array;
+        }
+
+        function cleanForm(data){
+            for(var i in data){
+                data[i]="";
+            }
         }
 
         return fac;

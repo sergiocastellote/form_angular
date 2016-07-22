@@ -9,17 +9,18 @@
                     <h1>Ejemplo form con:</h1>
                     <md-button class="header-component-text" href="https://angularjs.org/"> <img src="app/img/LogoAngular.png" /></md-button>
                     <div id="form">
-                    <h3>Usuario:</h3>
-                    <input-text-component required name="name" params="vm.data.name"></input-text-component>
-                    <input-text-component params="vm.data.surname"></input-text-component>
-                    </md-input-container>
-                    <md-select placeholder="Select company" ng-model="vm.data.company.model" style="min-width: 200px;">
-                        <md-option ng-value="item.name" ng-repeat="item in vm.data.company.collection">{{item.name}}</md-option>
-                    </md-select>
+                        <label for="id">Nombre</label>
+                        <input-text-component id="name" required name="name" params="vm.form.name"></input-text-component>
+                        <label for="surname">Apellido</label>
+                        <input-text-component id="surname" params="vm.form.surname"></input-text-component>
+                        </md-input-container>
+                     <!--    <md-select placeholder="Select company" ng-model="vm.data.company.model" style="min-width: 200px;">
+                            <md-option ng-value="item.name" ng-repeat="item in vm.data.company.collection">{{item.name}}</md-option>
+                        </md-select> -->
                     </div>
                     <div id="footer">
-                    <md-button ng-disabled="!userForm.$valid" class="md-raised" ng-click="vm.sentData()">Crear</md-button>
-                    <md-button flex class="md-raised md-primary" ng-click="vm.showUsers()">Ver lista usuarios</md-button>
+                        <md-button ng-disabled="!userForm.$valid" class="md-raised" ng-click="vm.sentData()">Crear</md-button>
+                        <md-button flex class="md-raised md-primary" ng-click="vm.showUsers()">Ver lista usuarios</md-button>
                     </div>
                 </div>
             </div>
