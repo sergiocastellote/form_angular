@@ -24,5 +24,23 @@
                 clickOutsideToClose: true
             })
         };
+
+        ////////////CONNNNNNNNNNNEEEEEEEEEEEECCCCCCCCCCTTTTTTTTTTTAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/RestServiceJava/rest/ftocservice',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            }
+        }).then(function successCallback(response) {
+            console.log("hola");
+            // this callback will be called asynchronously
+            // when the response is available
+        }, function errorCallback(response) {
+            console.log("adios");
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
     }
 })();
