@@ -8,12 +8,12 @@
     /* @ngInject */
     function ConnectionService($http) {
 
-        var url = 'http://localhost:8080/RestServiceJava/rest/';
+        var url = 'http://localhost:8080/RestServiceJava/rest/users';
 
-        function receiveData(service) {
+        function receiveData() {
             return $http({
                 method: 'GET',
-                url: url + service,
+                url: url,
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json'
@@ -21,8 +21,8 @@
             });
         }
 
-        this.receiveData = function(service) {
-            return receiveData(service);
+        this.receiveData = function() {
+            return receiveData();
 
         };
 
