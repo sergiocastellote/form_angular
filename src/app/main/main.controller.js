@@ -6,13 +6,17 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($http, $scope, $mdDialog, MainFactory, MainService) {
+    function MainController($http, $scope, $mdDialog, MainFactory, MainService, ConnectionService) {
         var vm = this;
         vm.array = [];
         // vm.data = MainFactory.getObjData();
-        vm.sentData = function() {
-            MainFactory.setData(vm.form);
-            MainFactory.cleanForm(vm.form);
+        vm.saveUser = function() {
+            ConnectionService.saveUser(vm.form).then(function succes(response){
+              console.log(response);
+            }, function error(response){
+              console.log(response);
+            });
+            // MainFactory.cleanForm(vm.form);
             // vm.form.name = ""
             // vm.form.surname = ""
             // vm.data.password.model = ""
