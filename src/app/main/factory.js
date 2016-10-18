@@ -18,19 +18,6 @@
                 model: "",
                 disabled: false,
                 label: "Apellido"
-            },
-            password: {
-                model: "",
-                disabled: false,
-                label: "password"
-            },
-            company: {
-                model: "",
-                collection: [{ name: 'Google' },
-                    { name: 'Mozilla' },
-                    { name: 'Android' },
-                    { name: 'Apple' }
-                ]
             }
         };
 
@@ -40,7 +27,6 @@
             getData: getData,
             setData: setData,
             getObjData: getObjData,
-            setInitData: setInitData,
             cleanForm: cleanForm
         };
 
@@ -53,10 +39,6 @@
                 name: data.name,
                 surname: data.surname
             });
-        }
-
-        function setInitData(data){
-            array = data;
         }
 
         function getData() {
